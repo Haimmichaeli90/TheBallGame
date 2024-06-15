@@ -2,15 +2,23 @@
 
 var ballSize = 100
 
-function onBallClick(){
+function onBallClick() {
    var ball = document.querySelector('.ball')
-   ballSize = ballSize + 50
-   if(ballSize > 400){
-    ballSize = 100
-   }
-   ball.innerText = ballSize
-   ball.style.width = ballSize + 'px'
-   ball.style.height = ballSize + 'px'
-   
+   var randomIncrement = Math.floor(Math.random() * 40) + 20
+   var currentWidth = ball.offsetWidth
+   var currentHeight = ball.offsetHeight
 
+   var newDiameter = currentWidth + randomIncrement
+   var newDiameter2 = currentHeight + randomIncrement
+
+   ballSize = newDiameter
+   
+   if (newDiameter > 400) {
+      ballSize = 100
+      newDiameter = 100
+      newDiameter2 = 100
+   }
+   ball.innerText = newDiameter
+   ball.style.width = newDiameter + 'px'
+   ball.style.height = newDiameter2 + 'px'
 }
